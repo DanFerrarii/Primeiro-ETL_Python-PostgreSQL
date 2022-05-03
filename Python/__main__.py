@@ -5,16 +5,16 @@ from modules.postgres import Conector_postgres
 if __name__=="__main__":
     try:
         print("Conectando banco de dados")
-        banco=Conector_postgres("XXX.X.X.X","nomeBD","user","password",)
+        banco=Conector_postgres("XXX.X.X.X","nomeBD","user","password",) #Informações da conexão com o banco ("ip","nome do banco de dados","usuário","senha")
         
-        escolha=input("Escolha o que você deseja fazer: \n1-Ler o CSV com um DF e inserir no BD \n2-nsights")
+        escolha=input("Escolha o que você deseja fazer: \n1-Ler o CSV com um DF e inserir no BD \n2-Insights")
         
         if escolha=="1":   
-            print("Lendo o CSV em um DF")
-            df=pd.read_csv("Caminho do CSV (C:\\")
+            print("Lendo o CSV e colocando os dados em um DF")
+            df=pd.read_csv("Caminho do CSV ("./Python/data/RefugiadosUcrania_Polonia.csv")
            
             print("Tratando dados")
-            df1=df.drop(columns=["Border Guard Post", "Border Guard Unit","UE / Schengen"])
+            df1=df.drop(columns=["Border Guard Post", "Border Guard Unit","UE / Schengen"]) #Eliminando colunas desnecessárias para o objetivo
             df2=df1.dropna()
 
             print("Inserindo dados no BD")
